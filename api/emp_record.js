@@ -31,7 +31,7 @@ const router = express.Router();
 // });
 
 router.get('/empreport', function (req, res) {
-    connection.query('select module,status, fname  from task t, users  u where u.uid= t.tid', (error, rows, fields) => {
+    connection.query('select fname, module,status  from task t, users  u where u.uid= t.tid', (error, rows, fields) => {
         if (!error)
             res.send(rows);
         else

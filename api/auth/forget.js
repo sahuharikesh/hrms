@@ -43,7 +43,7 @@ router.post("/", (req, res) => {
       from: "email",
       to: email,
       subject: "Link To Reset Password",
-      text: `You requested for reset password http://localhost:7000/api/reset/${token}`
+      text: `You requested for reset password http://localhost:5000/api/reset/${token}`
     };
     console.log("sending mail");
 

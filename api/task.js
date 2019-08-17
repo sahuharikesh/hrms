@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/addtask', function (req, res) {
     var task = {
-        "tid": req.body.tid,
+       
         "taskname": req.body.taskname,
         "date": req.body.date,
         "weekno":req.body.weekno,

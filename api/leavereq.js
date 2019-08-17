@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.post('/leaveapply', function (req, res) {
     var leavereq = {
-        "lid":req.body.lid,
         "name":req.body.name,
         "fromdate": req.body.fromdate,
         "todate":req.body.todate,
@@ -24,7 +23,7 @@ router.post('/leaveapply', function (req, res) {
         } else {
             let sql = "INSERT INTO notification SET ?";
             let notification = {
-                  uid: "6",
+                  uid: "4",
                   title: "Notification",
                   description: "Request for new leave",
                   status:"0"

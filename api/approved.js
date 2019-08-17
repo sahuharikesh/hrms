@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 
-router.post('/leaveapprove', function (req, res) {
+router.get('/leaveapprove', function (req, res) {
     let approved = {
         approve: "Approved by Chitransh Agnihotri",
     };
@@ -27,7 +27,7 @@ router.post('/leaveapprove', function (req, res) {
     });
 });
 
-router.post('/leavedecline', function (req, res) {
+router.get('/leavedecline', function (req, res) {
     let approved = {
         decline: "Decline by Chitransh Agnihotri",
     };
@@ -37,6 +37,7 @@ router.post('/leavedecline', function (req, res) {
             res.json({
                 status: false,
                 message: 'there are some error with query'
+                
             })
             console.log(error);
 

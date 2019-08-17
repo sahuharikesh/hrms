@@ -29,30 +29,41 @@ var router = express.Router();
 
 router.get("/:uid", function(req, res) {
   let sql = `SELECT count(id) as count FROM notification where status='1';
-   SELECT id,title,description FROM notification where status='1' AND uid='${req.params.uid}' ORDER BY id DESC`;
-  let query = connection.query(sql, (error, result) => {
+   SELECT title,description FROM notification where status='1' AND uid='${req.params.uid}' ORDER BY id DESC`;
+  let query = connection.query(sql, (error, results) => {
     if (error) {
       res.json({
-               status: false,
-               message: 'there are some error with query'
-                })
+        status: false,
+        message: 'there are some error with query'
+        
+      })
+      console.log(error);
+
+    } else {
+
+      res.json({
+        status: true,
+        data: results,
+        message: 'status updated'
+      })
       console.log(error);
     }
-
-    res.json({ result });
   });
 });
 
-router.get("/get/:id", (req, res) => {
+router.put("/get/:id", (req, res , fields) => {
   let sqlstatus = `UPDATE notification SET status='1' WHERE id='${req.params.id}'`;
-  querystatus = connection.query(sqlstatus, (err, result) => {
+  querystatus = connection.query(sqlstatus, (err, results) => {
     if (err) {
       
       console.log(err);
     }else{
-      res.send({message:"status updated"});
+      res.json({
+        status: true,
+        message: 'status updated'
+         })
     }
-    res.redirect("/");
+    //res.redirect("/");
   });
 });
 

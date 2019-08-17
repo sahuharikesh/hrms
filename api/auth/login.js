@@ -24,6 +24,7 @@ router.post("/", (req, res) => {
       });
     }
     console.log(result[0].uid);
+    
     if (result[0].uid > 0) {
       //Create and assign  a token
       const token = jwt.sign({ uid: result[0].uid },"hello" );
